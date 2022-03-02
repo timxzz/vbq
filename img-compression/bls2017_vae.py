@@ -18,6 +18,8 @@ from utils import tf_read_img, tf_convert_float_to_uint8, read_npy_file_helper
 read_img = lambda img: tf_read_img(tf, img)
 convert_float_to_uint8 = lambda img: tf_convert_float_to_uint8(tf, img)
 
+import wandb
+
 
 def train(args):
     """Trains the model."""
@@ -253,5 +255,9 @@ if __name__ == '__main__':
 
     tf.set_random_seed(args.seed)
     np.random.seed(args.seed)
+
+    # Initialise wandb
+    wandb.init(project="vbq-bb", entity="timxzz", sync_tensorboard=True,
+                    settings=wandb.Settings(start_method="fork"))
 
     train(args)

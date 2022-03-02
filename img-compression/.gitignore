@@ -1,0 +1,4 @@
+wandb/
+CIFAR-10/
+runs/
+*.swp

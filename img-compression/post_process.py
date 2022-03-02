@@ -19,7 +19,7 @@ from collections import namedtuple
 
 tf.enable_eager_execution()
 assert tf.executing_eagerly(), 'should use eager execution'
-os.environ['CUDA_VISIBLE_DEVICES'] = -1  # use CPU for simplicity; o/w may get OOM on GPU when batch size is too large
+os.environ['CUDA_VISIBLE_DEVICES'] = str(-1)  # use CPU for simplicity; o/w may get OOM on GPU when batch size is too large
 
 checkpoint_dir = sys.argv[1]
 runname = sys.argv[2]
